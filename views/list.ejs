@@ -1,0 +1,75 @@
+<%- include("header") -%>
+<div class="todo">
+  <h1> <%= name && name + "'s" %> Todo</h1>
+  <h1 class="in-or-out"><a href="/<%= loggedIn? 'logout' : 'login' %>" ><%= loggedIn? "Logout" : "Login" %></a></h1>
+</div>
+
+
+<div class="row" style="padding: 0 5px;">
+
+  <div class="col col-md-6">
+    <div class="box" id="heading">
+      <h1><%= title %></h1>
+    </div>
+    
+    <div class="box box-items">
+      <% items.forEach((item)=>{ %>
+        <form class="" action="/deleteItem" method="post">
+          <div class="item">
+            <input name="checkbox" type="checkbox" onchange="this.form.submit()" value="<%= item._id%>" >
+            <p><%= item.name %></p>
+            <input type="hidden" name="listName" value="<%= title %>"></input>
+          </div>
+        </form>
+        <% }) %>
+      <form class="item" action="/" method="post">
+        <input type="text" name="newTask" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="button" value="<%= title %>">+</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="col col-md-6">
+    <div class="box" id="heading">
+      <h1>Lists</h1>
+    </div>
+
+    <div class="box">
+      <% lists.forEach((list)=>{ %>
+        <form class="" action="/deleteList" method="post">
+          <div class="item" style="position: relative;">
+            <button name="delIcon" value="<%= list._id%>" type="submit" style="transform: scale(0.5);">
+              <% if(list.name !== "Today") { %>
+                <i class="fa fa-trash" aria-hidden="true" style="font-size: 2rem;"></i>
+                <% } %>
+            </button>
+            <p><%= list.name %></p>
+            <input type="hidden" name="listName" value="<%= list.name %>"></input>
+            <div style="position: absolute; right:2px;">
+              <% if(list.name === "Today") { %>
+                <a href="/" type="button" class="btn btn-lg" style="background-color: #6da2af;"><i style="color: #fff;" class="fas fa-search"></i></a>
+              <% }else{ %>
+                <a href="/new/<%= list.name %>" type="button" class="btn btn-lg" style="background-color: #6da2af;"><i style="color: #fff;" class="fas fa-search"></i></a>
+              <% } %>
+            </div>
+          </div>
+        </form>
+        <% }) %>
+      <form class="item" action="/new" method="post">
+        <input type="text" name="newList" placeholder="New List" autocomplete="off" required>
+        <button type="submit" name="button" >+</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+ <div style="text-align: center;">
+  <% messages.forEach((msg)=>{ %>
+    <p style="color: red; font-style:italic; font-size: 1.5rem; font-weight: 250;"><%=msg%> <em style="color: #000; font-style: normal;">Today </em>list</p>
+  <% }) %>      
+ </div>   
+
+
+<%- include("footer") -%>

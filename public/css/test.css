@@ -1,0 +1,136 @@
+html, body{
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  background-color: #ecedeb  ;
+  font-family: 'Finlandica', sans-serif;
+}
+
+
+.todo {
+  padding: 10px 10px;
+  background-color: #365e68;
+  position: relative;
+}
+
+.todo h1 {
+  font-weight: 900;
+  display: inline-block;
+}
+
+.in-or-out {
+  position: absolute;
+  right: 10px;
+}
+
+.todo a{
+  color: #fff;
+}
+
+
+
+h1 {
+  color: #fff;
+  padding: 10px;
+}
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+#heading {
+  background-color: #6da2af;
+  text-align: center;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #A683E3;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #011e25;
+}
+
+form.item {
+  text-align: center;
+  margin-left: 20px;
+}
+
+button {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #6da2af;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #2e5058;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: #046179;
+  text-align: center;
+  font-size: 1.2rem; 
+  padding-bottom: 5vh;
+}
+
+@media (max-width: 768px){
+  .todo h1{
+    font-size: 1.2rem;
+  }
+  .col {
+    margin-top: 50px;
+  }
+  .box{
+    width: 90vw;
+  }
+  footer{
+    font-size: .9rem;
+  }
+}
