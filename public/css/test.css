@@ -88,8 +88,10 @@ button {
   background-color: #6da2af;
   color: #fff;
   font-size: 30px;
-  padding-bottom: 6px;
   border-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type="text"] {
