@@ -24,7 +24,7 @@ app.use(passport.session())
 
 
 async function main() {
-  await mongoose.connect('mongodb+srv://ndujekwu:Ugochukwu100@cluster0.83uvt.mongodb.net/todolistDB?retryWrites=true&w=majority');
+  await mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.83uvt.mongodb.net/todolistDB?retryWrites=true&w=majority`);
 }
 main().catch(err => console.log(err));
 
